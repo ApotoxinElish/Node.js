@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>index首页</title>
-  </head>
+window.onload = function () {
+  // 定时器，每隔 1 秒执行 1 次
+  setInterval(() => {
+    var dt = new Date();
+    var HH = dt.getHours();
+    var mm = dt.getMinutes();
+    var ss = dt.getSeconds();
 
-  <body>
-    <div class="box">
-      <div id="HH">00</div>
-      <div>:</div>
-      <div id="mm">00</div>
-      <div>:</div>
-      <div id="ss">00</div>
-    </div>
+    // 为页面上的元素赋值
+    document.querySelector("#HH").innerHTML = padZero(HH);
+    document.querySelector("#mm").innerHTML = padZero(mm);
+    document.querySelector("#ss").innerHTML = padZero(ss);
+  }, 1000);
+};
 
-    <script src="./index.js"></script>
-  </body>
-</html>
+// 补零函数
+function padZero(n) {
+  return n > 9 ? n : "0" + n;
+}
